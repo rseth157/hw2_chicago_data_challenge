@@ -9,6 +9,27 @@ public class HealthClinic {
 	String phone;
 	String description;
 	String address;
+	
+	/**
+	 * 
+	 * @param facility
+	 * @param community
+	 * @param phone
+	 * @param description
+	 * @param address
+	 */
+	public HealthClinic(String facility,
+	String community,	String phone,
+	String description,
+	String address){
+		
+		this.facility = facility;
+		this.community =  community;
+		this.phone=  phone;
+		this.description =  description;
+		this.address=  address;
+		
+	}
 
 	/**
 	 * 
