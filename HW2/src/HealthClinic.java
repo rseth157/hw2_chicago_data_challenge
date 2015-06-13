@@ -9,7 +9,7 @@ public class HealthClinic {
 	String phone;
 	String description;
 	String address;
-	
+
 	/**
 	 * 
 	 * @return facility
@@ -17,7 +17,7 @@ public class HealthClinic {
 	public String getFacilty() {
 		return facility;
 	}
-	
+
 	/**
 	 * 
 	 * @param facility
@@ -25,7 +25,7 @@ public class HealthClinic {
 	public void setFacilty(String facilty) {
 		this.facility = facilty;
 	}
-	
+
 	/**
 	 * 
 	 * @return community
@@ -33,7 +33,7 @@ public class HealthClinic {
 	public String getCommunity() {
 		return community;
 	}
-	
+
 	/**
 	 * 
 	 * @param community
@@ -41,7 +41,7 @@ public class HealthClinic {
 	public void setCommunity(String community) {
 		this.community = community;
 	}
-	
+
 	/**
 	 * 
 	 * @return phone
@@ -49,7 +49,7 @@ public class HealthClinic {
 	public String getPhone() {
 		return phone;
 	}
-	
+
 	/**
 	 * 
 	 * @param phone
@@ -57,7 +57,7 @@ public class HealthClinic {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
+
 	/**
 	 * 
 	 * @return description
@@ -65,7 +65,7 @@ public class HealthClinic {
 	public String getDescription() {
 		return description;
 	}
-	
+
 	/**
 	 * 
 	 * @param description
@@ -73,20 +73,28 @@ public class HealthClinic {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	/**
 	 * @return address
 	 */
 	public String getAddress() {
 		return address;
 	}
-	
+
 	/**
 	 * 
 	 * @param address
 	 */
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+
+		return "HealthClinic [facility=" + facility + ", community="
+				+ community + ", phone=" + phone + ", description="
+				+ description + ", address=" + address + "]";
 	}
 
 }
