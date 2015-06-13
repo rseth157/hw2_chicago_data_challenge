@@ -20,14 +20,14 @@ public class HealthClinic {
 	 */
 	public HealthClinic(String facility,
 	String community,	String phone,
-	String description,
-	String address){
+	String description/*,
+	String address*/){
 		
 		this.facility = facility;
 		this.community =  community;
 		this.phone=  phone;
 		this.description =  description;
-		this.address=  address;
+		//this.address=  address;
 		
 	}
 
