@@ -45,15 +45,16 @@ public class CsvFileReader {
 					// Create a new Clinic object and fill data
 					HealthClinic clinic = new HealthClinic(
 							tokens[FACILITY_IDX], tokens[COMMUNITY_IDX],
-							tokens[PHONE_IDX], tokens[DESCRIPTION_IDX],
-							tokens[ADDRESS_IDX]);
+							tokens[PHONE_IDX], tokens[DESCRIPTION_IDX]/*,
+							tokens[ADDRESS_IDX]*/);
 					Clinics.add(clinic);
 				}
 			}
 
+			System.out.println("total records = " +Clinics.size() );
 			// Print the new student list
 			for (HealthClinic clinic : Clinics) {
-				System.out.println(Clinics.toString());
+				System.out.println(clinic.toString());
 			}
 
 		} catch (Exception e) {
