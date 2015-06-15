@@ -16,7 +16,24 @@ public class LifeExpectancy {
 	float lifeExpectency2010;
 	float lifeExpectency2010LowerCI;
 	float lifeExpectency2010UpperCI;
+	float numberOfClinics;
 	
+	/**
+	 * 
+	 * @return numberOfClinics
+	 */
+	public float getNumberOfClinics() {
+		return numberOfClinics;
+	}
+
+	/**
+	 * 
+	 * @param numberOfClinics
+	 */
+	public void setNumberOfClinics(float numberOfClinics) {
+		this.numberOfClinics = numberOfClinics;
+	}
+
 	/**
 	 * 
 	 * @return communityNumber
@@ -193,5 +210,11 @@ public class LifeExpectancy {
 		this.lifeExpectency2010UpperCI = lifeExpectency2010UpperCI;
 	}
 	
-	
+	@Override
+	public String toString() {
+
+		return "HealthClinic [community="
+				+ community + ", Number Of Health Clinics=" + communityNumber + ", Life Expectency in 2000="
+				+ lifeExpectency2000 + ", Life Expectency in 2010=" + lifeExpectency2010 + "]";
+	}
 }
