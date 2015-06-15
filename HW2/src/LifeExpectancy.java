@@ -18,11 +18,12 @@ public class LifeExpectancy {
 	float lifeExpectency2010UpperCI;
 	float numberOfClinics;
 	
-	public LifeExpectancy(String community, float lifeExpectency1990, float lifeExpectency2000, float lifeExpectency2010 ){
+	public LifeExpectancy(int communityNumber, String community, float lifeExpectency1990, float lifeExpectency2000, float lifeExpectency2010 ){
 		this.community =community;
 		this.lifeExpectency1990 = lifeExpectency1990;
 		this.lifeExpectency2000 = lifeExpectency2000;
 		this.lifeExpectency2010 = lifeExpectency2010;
+		this.communityNumber = communityNumber;
 	}
 	
 	/**
@@ -220,8 +221,8 @@ public class LifeExpectancy {
 	@Override
 	public String toString() {
 
-		return "Life Expectency [community="
-				+ community + ", Number Of Health Clinics=" + communityNumber + ", Life Expectency in 2000="
-				+ lifeExpectency2000 + ", Life Expectency in 2010=" + lifeExpectency2010 + "]";
+		return "Life Expectency [Community Number=" + communityNumber+",\t Community="
+				+ community + ",\t Number Of Health Clinics=" + numberOfClinics + ",\t Life Expectency in 2000="
+				+ lifeExpectency2000 + ",\t Life Expectency in 2010=" + lifeExpectency2010 + "]";
 	}
 }
