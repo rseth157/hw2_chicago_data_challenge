@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class CsvFileReader {
 
-	// Delimiter used in CSV file
+	// Delimiter used in file
 	private static final String COMMA_DELIMITER = ",";
 
 	// HealthClinic attributes index
@@ -45,14 +45,17 @@ public class CsvFileReader {
 					// Create a new Clinic object and fill data
 					HealthClinic clinic = new HealthClinic(
 							tokens[FACILITY_IDX], tokens[COMMUNITY_IDX],
-							tokens[PHONE_IDX], tokens[DESCRIPTION_IDX]/*,
-							tokens[ADDRESS_IDX]*/);
+							tokens[PHONE_IDX], tokens[DESCRIPTION_IDX]/*
+																	 * , tokens[
+																	 * ADDRESS_IDX
+																	 * ]
+																	 */);
 					Clinics.add(clinic);
 				}
 			}
 
-			System.out.println("total records = " +Clinics.size() );
-			// Print the new student list
+			System.out.println("total records = " + Clinics.size());
+			// Print the new clinic list
 			for (HealthClinic clinic : Clinics) {
 				System.out.println(clinic.toString());
 			}
