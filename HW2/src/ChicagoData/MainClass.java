@@ -31,7 +31,7 @@ public class MainClass {
 		do {
 			System.out
 					.println("To See Health clinic data press c \n"
-							+ "To See Life Expectency data press c \n"
+							+ "To See Life Expectency data press l \n"
 							+ "To see the relationship between clinic distribution and life expectency enter y \n"
 							+ "Or to exit press e");
 

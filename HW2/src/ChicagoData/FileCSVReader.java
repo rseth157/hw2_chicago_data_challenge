@@ -1,4 +1,5 @@
 package ChicagoData;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class FileCSVReader {
 
 	/**
 	 * Reads the health clinic file and store the data into a list
+	 * 
 	 * @param fileName
 	 * @param Clinics
 	 */
@@ -56,13 +58,11 @@ public class FileCSVReader {
 				String[] data = line.split(COMMA_DELIMITER);
 				if (data.length > 0) {
 					// Create a new Clinic object and fill data
-					HealthClinic clinic = new HealthClinic(
-							data[FACILITY_IDX], data[COMMUNITY_IDX],
-							data[PHONE_IDX], data[DESCRIPTION_IDX]/*
-																	 * , tokens[
-																	 * ADDRESS_IDX
-																	 * ]
-																	 */);
+					HealthClinic clinic = new HealthClinic(data[FACILITY_IDX],
+							data[COMMUNITY_IDX], data[PHONE_IDX],
+							data[DESCRIPTION_IDX]/*
+												 * , tokens[ ADDRESS_IDX ]
+												 */);
 					Clinics.add(clinic);
 				}
 			}
@@ -82,8 +82,10 @@ public class FileCSVReader {
 	}
 
 	/**
-	 * Reads the Life Expectency file and store the data into a list
-	 * Also calculate the number of clinics in each community from clinic list and save it
+	 * Reads the Life Expectency file and store the data into a list Also
+	 * calculate the number of clinics in each community from clinic list and
+	 * save it
+	 * 
 	 * @param fileName
 	 * @param Clinics
 	 * @param lifeExp
