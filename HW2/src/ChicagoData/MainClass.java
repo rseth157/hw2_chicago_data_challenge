@@ -1,4 +1,5 @@
 package ChicagoData;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,28 +20,43 @@ public class MainClass {
 
 		String fileNameClinic = "Public_Health_Services-_Chicago_Primary_Care_Community_Health_Centers.csv";
 		String fileNameLife = "Public_Health_Statistics-_Life_Expectancy_By_Community_Area.csv";
+		
 
 		List<HealthClinic> Clinics = new ArrayList<HealthClinic>();
-		System.out.println("Reading Clinics file:");
+		System.out.println("Reading Clinics file");
 		FileCSVReader.readClinicCsvFile(fileNameClinic, Clinics);
 
 		List<LifeExpectancy> lifeExp = new ArrayList<LifeExpectancy>();
-		System.out.println("Reading Life Expectency file:");
+		System.out.println("Reading Life Expectency file");
 		FileCSVReader.readLifeCsvFile(fileNameLife, Clinics, lifeExp);
 		String answer;
 		do {
 			System.out
-					.println("To See Health clinic data press c \n"
-							+ "To See Life Expectency data press l \n"
-							+ "To see the relationship between clinic distribution and life expectency enter y \n"
-							+ "Or to exit press e");
+					.println("\n*******************************************************************************");
+			System.out.println("To See Health clinic data enter c \n"
+					+ "To See Life Expectency data enter l \n"
+					+ "To see the relationship between "
+					+ "clinic distribution and life expectency enter y \n"
+					+ "Or to exit enter e");
+			System.out
+					.println("*******************************************************************************\n");
 
 			@SuppressWarnings("resource")
 			Scanner input = new Scanner(System.in);
 			answer = input.nextLine();
 			if (answer.equalsIgnoreCase("y")) {
-				GetCorrelation(lifeExp);
-
+				double cor2010 = getCorrelation(lifeExp, "2010");
+				double cor2000 = getCorrelation(lifeExp, "2000");
+				double cor1990 = getCorrelation(lifeExp, "1990");
+				System.out
+						.println("Pearson correlation coefficient for year 2010= "
+								+ cor2010);
+				System.out
+						.println("Pearson correlation coefficient for year 2000= "
+								+ cor2000);
+				System.out
+						.println("Pearson correlation coefficient for year 1990= "
+								+ cor1990);
 				System.out
 						.println("If value is negative it means there is inverse relationship, "
 								+ "if the value for X increases, the value of y decreases");
@@ -65,7 +81,8 @@ public class MainClass {
 	 *            data
 	 * @return correlation coefficient
 	 */
-	public static void GetCorrelation(List<LifeExpectancy> lifeExpectency) {
+	public static double getCorrelation(List<LifeExpectancy> lifeExpectency,
+			String year) {
 		double meanLifeExp2010 = 0.0, meanLifeExp2000 = 0.0, meanLifeExp1990 = 0.0, meanClinicCount = 0.0;
 		for (LifeExpectancy lifeE : lifeExpectency) {
 			meanLifeExp2010 += lifeE.getLifeExpectency2010();
@@ -73,8 +90,10 @@ public class MainClass {
 			meanLifeExp1990 += lifeE.getLifeExpectency1990();
 			meanClinicCount += lifeE.getNumberOfClinics();
 		}
-
-		int n = lifeExpectency.size() - 1;
+		int n;
+		n = lifeExpectency.size();
+		
+		//mean or average of lists
 		meanLifeExp2010 /= n;
 		meanLifeExp1990 /= n;
 		meanLifeExp2000 /= n;
@@ -92,7 +111,10 @@ public class MainClass {
 					- meanLifeExp2010, 2.0);
 			sumY22010 += Math.pow(lifeE.getNumberOfClinics() - meanClinicCount,
 					2.0);
-
+			
+			System.out.println("lifeE.getLifeExpectency2010()="+lifeE.getLifeExpectency2010()+"meanLifeExp2010="+meanLifeExp2010);
+System.out.println("lifeE.getNumberOfClinics()="+lifeE
+					.getNumberOfClinics()+"meanClinicCount="+meanClinicCount);
 			// calculation for 2000
 			sumXY2000 += ((lifeE.getLifeExpectency2000() - meanLifeExp2000) * (lifeE
 					.getNumberOfClinics() - meanClinicCount));
@@ -110,12 +132,14 @@ public class MainClass {
 					2.0);
 		}
 
-		System.out.println("Pearson correlation coefficient for year 2010= "
-				+ getCoefficient(sumXY2010, sumX22010, sumY22010));
-		System.out.println("Pearson correlation coefficient for year 2000= "
-				+ getCoefficient(sumXY2000, sumX22000, sumY22000));
-		System.out.println("Pearson correlation coefficient for year 1990= "
-				+ getCoefficient(sumXY1990, sumX21990, sumY21990));
+		if (year.equals("2010")) {
+			return getCoefficient(sumXY2010, sumX22010, sumY22010);
+		} else if (year.equals("2000")) {
+			return getCoefficient(sumXY2000, sumX22000, sumY22000);
+		} else if (year.equals("1990")) {
+			return getCoefficient(sumXY1990, sumX21990, sumY21990);
+		}
+		return 0;
 
 		// return ((coef2010 + coef2000 + coef1990) / 3);
 	}
@@ -133,6 +157,7 @@ public class MainClass {
 
 	/**
 	 * Print the list
+	 * 
 	 * @param list
 	 */
 	public static <E> void print(List<E> list) {
