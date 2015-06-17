@@ -208,7 +208,7 @@ public class MainClass {
 
 		mean = mean / lifeExpectency.size();
 
-		// calculating standard deviation
+		// calculating variance
 		for (LifeExpectancy life : lifeExpectency) {
 			float x = life.getNumberOfClinics();
 			standardD += (x - mean) * (x - mean);

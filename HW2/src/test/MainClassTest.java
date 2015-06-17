@@ -36,7 +36,7 @@ public class MainClassTest {
 		assertEquals(
 				os.toString()
 						.contains(
-								"HealthClinic [facility=a, community=b, phone=c, description=d, address=null]"),
+								"HealthClinic [facility=a,	 community=b,	 phone=c,	 description=d,	 address=null]"),
 				true);
 
 		// Restore normal operation

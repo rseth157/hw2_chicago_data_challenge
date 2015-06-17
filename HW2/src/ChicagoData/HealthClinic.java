@@ -114,9 +114,9 @@ public class HealthClinic {
 	@Override
 	public String toString() {
 
-		return "HealthClinic [facility=" + facility + ", community="
-				+ community + ", phone=" + phone + ", description="
-				+ description + ", address=" + address + "]";
+		return "HealthClinic [facility=" + facility + ",\t community="
+				+ community + ",\t phone=" + phone + ",\t description="
+				+ description + ",\t address=" + address + "]";
 	}
 
 }

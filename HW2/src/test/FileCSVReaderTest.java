@@ -135,7 +135,7 @@ public class FileCSVReaderTest {
 		FileCSVReader.readClinicCsvFile("src/test/Health_clinic_test.csv",
 				clinics);;
 		assertEquals(
-				"HealthClinic [facility=Erie Family Health Center -- Helping Hands, community=Rogers Park (1), phone=(312) 666-3494, description=FQHC, address=null]",
+				"HealthClinic [facility=Erie Family Health Center -- Helping Hands,	 community=Rogers Park (1),	 phone=(312) 666-3494,	 description=FQHC,	 address=null]",
 				clinics.get(0).toString());
 	}
 
