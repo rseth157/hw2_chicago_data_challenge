@@ -127,7 +127,7 @@ public class FileCSVReader {
 			for (LifeExpectancy l : lifeExp) {
 				int clinicCount = 0;
 				for (HealthClinic clinic : Clinics) {
-					if (clinic.getCommunity().contains(
+					if (clinic.getCommunity().toUpperCase().contains(
 							l.getCommunity().toUpperCase())
 							&& clinic.getCommunity().contains(
 									String.valueOf(l.getCommunityNumber()))) {
