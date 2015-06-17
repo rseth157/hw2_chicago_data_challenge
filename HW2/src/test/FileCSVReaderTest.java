@@ -46,7 +46,7 @@ public class FileCSVReaderTest {
 		List<HealthClinic> clinics = new ArrayList<HealthClinic>();
 		FileCSVReader.readClinicCsvFile("src/test/Health_clinic_test.csv",
 				clinics);
-		assertEquals(1, clinics.size());
+		assertEquals(2, clinics.size());
 	}
 
 	/**
@@ -59,8 +59,8 @@ public class FileCSVReaderTest {
 				clinics);
 		List<LifeExpectancy> life = new ArrayList<LifeExpectancy>();
 		FileCSVReader.readLifeCsvFile("src/test/life_test.csv", clinics, life);
-		assertEquals(1, clinics.size());
-		assertEquals(1, life.size());
+		assertEquals(2, clinics.size());
+		assertEquals(2, life.size());
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class FileCSVReaderTest {
 		List<HealthClinic> clinics = new ArrayList<HealthClinic>();
 		FileCSVReader.readClinicCsvFile("src/test/Health_clinic_test.csv",
 				clinics);
-		assertEquals(1, clinics.size());
+		assertEquals(2, clinics.size());
 		assertEquals("Erie Family Health Center -- Helping Hands",
 				clinics.get(0).getFacilty());
 		assertEquals("Rogers Park (1)", clinics.get(0).getCommunity());
@@ -111,7 +111,7 @@ public class FileCSVReaderTest {
 		assertEquals(77.30d, life.get(0).getLifeExpectency2010(), 0.01);
 		assertEquals(73.09d, life.get(0).getLifeExpectency2000(), 0.01);
 		assertEquals(70.90d, life.get(0).getLifeExpectency1990(), 0.01);
-		assertEquals(1.0f, life.get(0).getNumberOfClinics(), 1.0);
+		assertEquals(1.0f, life.get(0).getNumberOfClinics(), 0.1);
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class FileCSVReaderTest {
 		List<LifeExpectancy> life = new ArrayList<LifeExpectancy>();
 		FileCSVReader.readLifeCsvFile("src/test/life_test.csv", clinics, life);
 		assertEquals(
-				"Life Expectency [Community Number=1,	 Community=Rogers Park,	 Number Of Health Clinics=0.0,	 Life Expectency in 2000=73.1,	 Life Expectency in 2010=77.3]",
+				"Life Expectency [Community Number=1,	 Community=Rogers Park,	 Number Of Health Clinics=1.0,	 Life Expectency in 2000=73.1,	 Life Expectency in 2010=77.3]",
 				life.get(0).toString());
 	}
 	
