@@ -54,9 +54,9 @@ public class MainClassTest {
 				clinics);
 		List<LifeExpectancy> life = new ArrayList<LifeExpectancy>();
 		FileCSVReader.readLifeCsvFile("src/test/life_test.csv", clinics, life);
-		double ans1 = MainClass.getCorrelation(life, "2010");
-		double ans2 = MainClass.getCorrelation(life, "2000");
-		double ans3 = MainClass.getCorrelation(life, "1990");
+		double ans1 = MainClass.getCorrelation(life).get("2010");
+		double ans2 = MainClass.getCorrelation(life).get("2000");
+		double ans3 = MainClass.getCorrelation(life).get("1990");
 		
 		// assert result
 		//Result tested with excel formula
@@ -74,4 +74,20 @@ public class MainClassTest {
 		assertEquals(1.00d, c, 0.01);
 	}
 
+	/**
+	 * Testing distribution method
+	 */
+	@Test
+	public void getVMRTest() {
+		List<HealthClinic> clinics = new ArrayList<HealthClinic>();
+		FileCSVReader.readClinicCsvFile("src/test/Health_clinic_test.csv",
+				clinics);
+		List<LifeExpectancy> life = new ArrayList<LifeExpectancy>();
+		FileCSVReader.readLifeCsvFile("src/test/life_test.csv", clinics, life);
+		double ans1 = MainClass.getVMR(life);
+		
+		// assert result
+		//Result tested with excel formula
+		assertEquals(0.33d, ans1, 0.01);
+	}
 }
